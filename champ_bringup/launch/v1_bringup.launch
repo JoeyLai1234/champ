@@ -63,13 +63,13 @@
             <param if="$(arg gazebo)" name="orientation_from_imu" value="true"/>            
         </node>
 
-        <node pkg="robot_localization" type="ekf_localization_node" name="v1_base_to_footprint_ekf"> 
+        <node pkg="robot_localization" type="ekf_localization_node" name="base_to_footprint_ekf"> 
             <remap from="odometry/filtered" to="odom/local" />
             <param name="base_link_frame" value="$(arg base_frame)" />
               <rosparam command="load" file="$(find champ_base)/config/ekf/v1_base_to_footprint.yaml" />
         </node>
 
-              <node if="$(arg publish_odom_tf)" pkg="robot_localization" type="v1_ekf_localization_node" name="v1_footprint_to_odom_ekf"> 
+              <node if="$(arg publish_odom_tf)" pkg="robot_localization" type="v1_ekf_localization_node" name="footprint_to_odom_ekf"> 
             <remap from="odometry/filtered" to="odom" />
           <rosparam command="load" file="$(find champ_base)/config/ekf/v1_footprint_to_odom.yaml" />
         </node>
