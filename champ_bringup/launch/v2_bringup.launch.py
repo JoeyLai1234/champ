@@ -187,10 +187,10 @@ def generate_launch_description():
         ],
     )
 
-    base_to_footprint_ekf = Node(
+    v2_base_to_footprint_ekf = Node(
         package="robot_localization",
         executable="ekf_node",
-        name="base_to_footprint_ekf",
+        name="v2_base_to_footprint_ekf",
         output="screen",
         parameters=[
             {"base_link_frame": LaunchConfiguration("base_link_frame")},
@@ -199,16 +199,16 @@ def generate_launch_description():
                 get_package_share_directory("champ_base"),
                 "config",
                 "ekf",
-                "base_to_footprint.yaml",
+                "v2_base_to_footprint.yaml",
             ),
         ],
         remappings=[("odometry/filtered", "odom/local")],
     )
 
-    footprint_to_odom_ekf = Node(
+    v2_footprint_to_odom_ekf = Node(
         package="robot_localization",
         executable="ekf_node",
-        name="footprint_to_odom_ekf",
+        name="v2_footprint_to_odom_ekf",
         output="screen",
         parameters=[
             {"base_link_frame": LaunchConfiguration("base_link_frame")},
@@ -217,7 +217,7 @@ def generate_launch_description():
                 get_package_share_directory("champ_base"),
                 "config",
                 "ekf",
-                "footprint_to_odom.yaml",
+                "v2_footprint_to_odom.yaml",
             ),
         ],
         remappings=[("odometry/filtered", "odom")],
