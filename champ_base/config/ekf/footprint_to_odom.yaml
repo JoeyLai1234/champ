@@ -20,6 +20,13 @@ footprint_to_odom_ekf:
                   false, false, true,
                   false, false, false]
 
+    odom_frame: odom
+    base_link_frame: base_footprint
+    world_frame: odom
+
+    mini_pupper_version: ${declare_parameter('mini_pupper_version')}
+
+    if: ${declare_parameter('mini_pupper_version') != 'v1'}
     imu0: imu/data
     imu0_config: [false, false, false,
                   false, false, true,
@@ -27,6 +34,3 @@ footprint_to_odom_ekf:
                   false, false,  true,
                   false, false, false]
 
-    odom_frame: odom
-    base_link_frame: base_footprint
-    world_frame: odom
