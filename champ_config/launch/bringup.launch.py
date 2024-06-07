@@ -33,7 +33,7 @@ def generate_launch_description():
         [this_package, 'config', 'links', 'links.yaml']
     )
     bringup_launch_path = PathJoinSubstitution(
-        [FindPackageShare('champ_bringup'), 'launch', MINI_PUPPER_VERSION + 'bringup.launch.py']
+        [FindPackageShare('champ_bringup'), 'launch', MINI_PUPPER_VERSION + '_bringup.launch.py']
     )
 
     return LaunchDescription([
