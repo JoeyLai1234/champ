@@ -19,6 +19,11 @@ base_to_footprint_ekf:
                   false, false, false,
                   false, false, false,
                   false, false, false]
+                  
+    odom_frame: base_footprint
+    world_frame: base_footprint
+
+    mini_pupper_version: ${declare_parameter('mini_pupper_version')}
 
     if: ${declare_parameter('mini_pupper_version') != 'v1'}
     imu0: imu/data
@@ -27,15 +32,5 @@ base_to_footprint_ekf:
                   true, true, true,
                   false, false, false,
                   false, false, false]
-    else:
-      imu0: imu/data
-      imu0_config: [false, false, false,
-                    false, false, false,
-                    true, true, true,
-                    false, false, false,
-                    false, false, false]
 
-    odom_frame: base_footprint
-    world_frame: base_footprint
 
-    mini_pupper_version: ${declare_parameter('mini_pupper_version')}
