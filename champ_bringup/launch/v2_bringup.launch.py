@@ -187,10 +187,10 @@ def generate_launch_description():
         ],
     )
 
-    v2_base_to_footprint_ekf = Node(
+    base_to_footprint_ekf = Node(
         package="robot_localization",
         executable="ekf_node",
-        name="v2_base_to_footprint_ekf",
+        name="base_to_footprint_ekf",
         output="screen",
         parameters=[
             {"base_link_frame": LaunchConfiguration("base_link_frame")},
@@ -205,10 +205,10 @@ def generate_launch_description():
         remappings=[("odometry/filtered", "odom/local")],
     )
 
-    v2_footprint_to_odom_ekf = Node(
+    footprint_to_odom_ekf = Node(
         package="robot_localization",
         executable="ekf_node",
-        name="v2_footprint_to_odom_ekf",
+        name="footprint_to_odom_ekf",
         output="screen",
         parameters=[
             {"base_link_frame": LaunchConfiguration("base_link_frame")},
