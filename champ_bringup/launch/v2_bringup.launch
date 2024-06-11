@@ -66,12 +66,12 @@
         <node pkg="robot_localization" type="ekf_localization_node" name="base_to_footprint_ekf"> 
             <remap from="odometry/filtered" to="odom/local" />
             <param name="base_link_frame" value="$(arg base_frame)" />
-            <rosparam command="load" file="$(find champ_base)/config/ekf/base_to_footprint.yaml" />
+            <rosparam command="load" file="$(find champ_base)/config/ekf/v2_base_to_footprint.yaml" />
         </node>
 
         <node if="$(arg publish_odom_tf)" pkg="robot_localization" type="ekf_localization_node" name="footprint_to_odom_ekf"> 
             <remap from="odometry/filtered" to="odom" />
-            <rosparam command="load" file="$(find champ_base)/config/ekf/footprint_to_odom.yaml" />
+            <rosparam command="load" file="$(find champ_base)/config/ekf/v2_footprint_to_odom.yaml" />
         </node>
         
         <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz"

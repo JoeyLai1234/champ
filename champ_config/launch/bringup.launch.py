@@ -21,6 +21,7 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+    MINI_PUPPER_VERSION = os.environ['MINI_PUPPER_VERSION']
     this_package = FindPackageShare('champ_config')
     joints_config = PathJoinSubstitution(
         [this_package, 'config', 'joints', 'joints.yaml']
@@ -32,7 +33,7 @@ def generate_launch_description():
         [this_package, 'config', 'links', 'links.yaml']
     )
     bringup_launch_path = PathJoinSubstitution(
-        [FindPackageShare('champ_bringup'), 'launch', 'bringup.launch.py']
+        [FindPackageShare('champ_bringup'), 'launch', MINI_PUPPER_VERSION + '_bringup.launch.py']
     )
 
     return LaunchDescription([
