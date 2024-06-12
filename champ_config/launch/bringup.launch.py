@@ -21,7 +21,7 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    MINI_PUPPER_VERSION = os.environ['MINI_PUPPER_VERSION']
+    ROBOT_MODEL = os.getenv('ROBOT_MODEL', default="mini_pupper_2")
     this_package = FindPackageShare('champ_config')
     joints_config = PathJoinSubstitution(
         [this_package, 'config', 'joints', 'joints.yaml']
@@ -33,7 +33,7 @@ def generate_launch_description():
         [this_package, 'config', 'links', 'links.yaml']
     )
     bringup_launch_path = PathJoinSubstitution(
-        [FindPackageShare('champ_bringup'), 'launch', MINI_PUPPER_VERSION + '_bringup.launch.py']
+        [FindPackageShare('champ_bringup'), 'launch', ROBOT_MODEL + '_bringup.launch.py']
     )
 
     return LaunchDescription([
